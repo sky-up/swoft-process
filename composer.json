@@ -1,5 +1,5 @@
 {
-  "name": "swoft/process",
+  "name": "swoft-fork/process",
   "type": "library",
   "version": "v2.0.11",
   "keywords": [
@@ -9,10 +9,10 @@
     "process"
   ],
   "description": "Process Component for Swoft",
-  "homepage": "https://github.com/swoft-cloud/swoft-process",
+  "homepage": "https://github.com/sky-up/swoft-process",
   "license": "Apache-2.0",
   "require": {
-    "swoft/framework": "~2.0.0"
+    "swoft-fork/framework": "~2.0.0"
   },
   "autoload": {
     "psr-4": {
@@ -26,7 +26,7 @@
     }
   },
   "require-dev": {
-    "swoft/swoole-ide-helper": "dev-master",
+    "swoft-fork/swoole-ide-helper": "dev-master",
     "phpunit/phpunit": "^7.5 || ^8.0"
   },
   "scripts": {
