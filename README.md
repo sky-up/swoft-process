@@ -16,7 +16,7 @@ Swoft Process Component
 - composer command
 
 ```bash
-composer require swoft/process
+composer require swoft-fork/process
 ```
 
 ## Resources
