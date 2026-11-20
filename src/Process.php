@@ -54,11 +54,11 @@ class Process
      * @throws ProcessException
      */
     public function __construct(
-        callable $callback = null,
+        ?callable $callback = null,
         bool $inout = false,
         int $pipeType = 2,
         bool $coroutine = true,
-        SwooleProcess $process = null
+        ?SwooleProcess $process = null
     ) {
         if ($process) {
             $this->process = $process;
@@ -283,7 +283,7 @@ class Process
      *
      * @return bool
      */
-    public static function signal(int $signo, callable $callback = null): bool
+    public static function signal(int $signo, ?callable $callback = null): bool
     {
         return (bool)SwooleProcess::signal($signo, $callback);
     }

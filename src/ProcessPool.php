@@ -20,6 +20,7 @@ use Swoft\Stdlib\Helper\Sys;
 use Swoole\Coroutine;
 use Swoole\Process;
 use Swoole\Process\Pool;
+use Throwable;
 
 /**
  * Class ProcessPool
@@ -106,7 +107,12 @@ class ProcessPool
      */
     public function start(): void
     {
-        $this->pool = new Pool($this->workerNum, $this->ipcType, $this->msgQueueKey, $this->coroutine);
+        try {
+            $this->pool = new Pool($this->workerNum, $this->ipcType, $this->msgQueueKey, $this->coroutine);
+        } catch (Throwable $e) {
+            throw new ProcessException(sprintf('Create Swoole Process Pool failed: %s', $e->getMessage()), (int)$e->getCode(), $e);
+        }
+
         foreach ($this->on as $name => $listener) {
             $listenerInterface = SwooleEvent::LISTENER_MAPPING[$name] ?? '';
             if (empty($listenerInterface)) {
